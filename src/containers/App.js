@@ -3,14 +3,14 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
-import {tuki} from '../components/Tuki';
+import {CustomRobots} from '../components/CustomRobots';
 import './App.css'
 
 class App extends Component {
     constructor() {
         super()
         this.state={
-            robots: [tuki[0]],
+            robots: [],
             searchField: ''
         }
     }
@@ -18,7 +18,7 @@ class App extends Component {
     componentDidMount(){
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(respone => respone.json())
-            .then(users => users.concat(tuki[0]))    
+            .then(users => users.concat(CustomRobots))    
             .then(users => this.setState({robots: users}))   
     }
 
